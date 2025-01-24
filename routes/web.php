@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\TimeStoreController;
 
 Route::get('/', function () {
@@ -16,3 +17,5 @@ Route::get('/dashboard/time', function () {
 });
 
 Route::post('/dashboard/time/store', TimeStoreController::class);
+
+Route::get('/carrito', [CartController::class, 'show']);
