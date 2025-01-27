@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TimeStoreController;
+use App\Http\Controllers\TimeCreateCustomController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,5 +18,6 @@ Route::get('/dashboard/time', function () {
 });
 
 Route::post('/dashboard/time/store', TimeStoreController::class);
+Route::get('/dashboard/time/create-custom', TimeCreateCustomController::class);
 
 Route::get('/carrito', [CartController::class, 'show']);
