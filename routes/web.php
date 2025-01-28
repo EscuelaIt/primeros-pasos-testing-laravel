@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TimeStoreController;
 use App\Http\Controllers\TimeCreateCustomController;
 
@@ -9,9 +10,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-});
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/dashboard/time', function () {
     return view('dashboard.add-time-form');
