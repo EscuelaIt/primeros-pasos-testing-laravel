@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TimeStoreController;
+use App\Http\Controllers\TimetableStoreController;
 use App\Http\Controllers\TimeCreateCustomController;
 
 Route::get('/', function () {
@@ -24,3 +25,5 @@ Route::get('/carrito', [CartController::class, 'show']);
 Route::get('/restringida', function() {
     abort(403);
 });
+
+Route::post('/dashboard/timetable/store', TimetableStoreController::class);

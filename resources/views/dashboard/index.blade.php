@@ -10,6 +10,8 @@
     <h1>Este es el dashboard</h1>
     @if($timetables->isEmpty())
         <p>Puedes crear tu primer horario</p>
+    @else
+        <p>Hemos encontrado {{ $timetables->count() }} horarios</p>
     @endif
     @foreach ($timetables as $timetable)
         <p>{{ $timetable->name }}</p>
