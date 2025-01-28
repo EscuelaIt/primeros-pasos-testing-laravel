@@ -21,3 +21,7 @@ Route::post('/dashboard/time/store', TimeStoreController::class);
 Route::get('/dashboard/time/create-custom', TimeCreateCustomController::class);
 
 Route::get('/carrito', [CartController::class, 'show']);
+
+Route::get('/restringida', function() {
+    abort(403);
+});

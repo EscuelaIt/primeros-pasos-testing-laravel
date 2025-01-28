@@ -43,4 +43,16 @@ class TimeCreateCustomTest extends TestCase
             InvalidArgumentException::class
         );
     }
+
+    #[Test]
+    public function it_shows_500_error_page(): void
+    {
+        config([
+            'app.debug' => false
+        ]);
+        $response = $this->get('/dashboard/time/create-custom');
+        $response
+            ->assertInternalServerError()
+            ->assertSee('<h1>Error no esperado en el servidor</h1>', false);
+    }
 }
