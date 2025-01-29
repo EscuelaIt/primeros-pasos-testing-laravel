@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\Models\Timetable;
+use Database\Seeders\TimetableSeeder;
 use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -11,6 +12,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class TimetableViewTest extends TestCase
 {
     use RefreshDatabase;
+
+    // protected $seed = true;
 
     #[Test]
     public function dashboard_home_shows_timetables(): void
@@ -21,13 +24,16 @@ class TimetableViewTest extends TestCase
         // ];
         // Timetable::create($timetableData);
 
-        $timeTable = Timetable::factory()->create([
-            'name' => 'Mi primer horario',
-        ]);
+        // $timeTable = Timetable::factory()->create([
+        //     'name' => 'Mi primer horario',
+        // ]);
+
+        $this->seed(TimetableSeeder::class);
 
         $response = $this->get('/dashboard');
         $response->assertStatus(200);
-        $response->assertSee($timeTable->name);
+        $response->assertSee('Clases curso 2025');
+        $response->assertSee('Hemos encontrado 6 horarios');
     }
 
     #[Test]
